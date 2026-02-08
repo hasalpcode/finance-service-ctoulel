@@ -6,7 +6,6 @@ import lombok.Builder;
 
 import java.time.LocalDate;
 
-@Builder
 
 public record RetraitDTO(
         Long retraitId,

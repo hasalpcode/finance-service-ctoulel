@@ -10,6 +10,10 @@ security:
 spring:
   application:
     name: finance-service
+  cloud:
+    openfeign:
+      okhttp:
+        enabled: true
 
   datasource:
     url: jdbc:mysql://localhost:8889/ong_finance_db?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false

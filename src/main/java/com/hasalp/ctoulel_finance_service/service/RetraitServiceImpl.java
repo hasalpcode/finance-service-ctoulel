@@ -2,7 +2,6 @@ package com.hasalp.ctoulel_finance_service.service;
 
 
 import com.hasalp.ctoulel_finance_service.dto.RetraitDTO;
-import com.hasalp.ctoulel_finance_service.dto.VersementDTO;
 import com.hasalp.ctoulel_finance_service.exception.ResourceNotFoundException;
 import com.hasalp.ctoulel_finance_service.mapper.RetraitMapper;
 import com.hasalp.ctoulel_finance_service.model.Retrait;

@@ -1,24 +1,20 @@
 package com.hasalp.ctoulel_finance_service.dto;
 
 import jakarta.validation.constraints.NotNull;
-import lombok.*;
 
-import java.time.LocalDate;
+import java.util.List;
 
-@Builder
 
-public record VersementDTO(
-        Long versementId,
+public record VersementRequestDTO(
 
         @NotNull
-        Long membreId,
+        List<Long> membreIds,
 
         @NotNull
         String mois,
 
         @NotNull
         Double montant
-
 ) {
 }
 
