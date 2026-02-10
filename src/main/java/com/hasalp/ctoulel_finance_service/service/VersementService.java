@@ -1,7 +1,6 @@
 package com.hasalp.ctoulel_finance_service.service;
 
 
-import com.hasalp.ctoulel_finance_service.dto.RetraitDTO;
 import com.hasalp.ctoulel_finance_service.dto.VersementRequestDTO;
 import com.hasalp.ctoulel_finance_service.dto.VersementResponseDTO;
 

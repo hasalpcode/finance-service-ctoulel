@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "retraits")
@@ -30,7 +31,7 @@ public class Retrait {
     private Double montant;
 
     @CreationTimestamp
-    @Column(name = "date_retrait", nullable = false,updatable = false)
-    private LocalDate dateRetrait;
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime dateRetrait;
 }
 

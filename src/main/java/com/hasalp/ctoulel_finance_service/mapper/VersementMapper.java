@@ -21,5 +21,6 @@ public interface VersementMapper {
     }
 
     @org.mapstruct.Mapping(target = "membreId", ignore = true)
-    void updateEntityFromDto(VersementRequestDTO dto, @MappingTarget Versement entity);}
+    void updateEntityFromDto(VersementRequestDTO dto, @MappingTarget Versement entity);
+}
 

@@ -1,23 +1,20 @@
 package com.hasalp.ctoulel_finance_service.dto;
 
-import jakarta.persistence.Column;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Builder;
+import jakarta.validation.constraints.Positive;
 
-import java.time.LocalDate;
+public record RetraitRequestDTO(
 
-
-public record RetraitDTO(
-        Long retraitId,
         @NotNull
         Long caissierId,
 
-        @NotNull
+        @NotBlank
         String motif,
 
         @NotNull
+        @Positive
         Double montant
 
 ) {
 }
-

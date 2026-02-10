@@ -1,7 +1,6 @@
 package com.hasalp.ctoulel_finance_service.service;
 
 
-import com.hasalp.ctoulel_finance_service.dto.RetraitDTO;
 import com.hasalp.ctoulel_finance_service.dto.VersementRequestDTO;
 import com.hasalp.ctoulel_finance_service.dto.VersementResponseDTO;
 import com.hasalp.ctoulel_finance_service.exception.BusinessException;
@@ -14,7 +13,6 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
