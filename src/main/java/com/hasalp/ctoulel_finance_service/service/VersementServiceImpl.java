@@ -39,7 +39,7 @@ public class VersementServiceImpl implements VersementService {
         List<Versement> versements = dto.membreIds().stream()
                 .map(membreId -> {
                     Versement v = mapper.toEntity(membreId, dto);
-                    v.setDateVersement(now);
+//                    v.setDateVersement(now);
                     return v;
                 })
                 .toList();
