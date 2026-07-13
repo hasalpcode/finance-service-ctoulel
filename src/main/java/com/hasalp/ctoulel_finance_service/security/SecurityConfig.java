@@ -40,15 +40,15 @@ public class SecurityConfig {
                         .accessDeniedHandler((request, response, accessDeniedException) ->
                                 response.sendError(
                                         HttpServletResponse.SC_FORBIDDEN,
-                                        "Accès refusé : rôle ADMIN requis"
+                                        "Accès refusé : rôle COMPTABLE requis"
                                 )
                         )
                 )
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.POST, "/api/versements/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/api/versements/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.POST, "//api/retraits/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/api/retraits/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/api/versements/**").hasRole("COMPTABLE")
+                        .requestMatchers(HttpMethod.DELETE, "/api/versements/**").hasRole("COMPTABLE")
+                        .requestMatchers(HttpMethod.POST, "//api/retraits/**").hasRole("COMPTABLE")
+                        .requestMatchers(HttpMethod.DELETE, "/api/retraits/**").hasRole("COMPTABLE")
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
