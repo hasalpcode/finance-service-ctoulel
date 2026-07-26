@@ -13,7 +13,7 @@ import java.util.List;
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
 @Builder
-public class Birth {
+public class Birth extends TenantAwareEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

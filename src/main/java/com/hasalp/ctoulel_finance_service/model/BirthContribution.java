@@ -8,7 +8,7 @@ import lombok.*;
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
 @Builder
-public class BirthContribution {
+public class BirthContribution extends TenantAwareEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
 @Builder
-public class Versement {
+public class Versement extends TenantAwareEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
