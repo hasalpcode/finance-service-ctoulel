@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.TenantId;
 
 import java.util.UUID;
 
@@ -11,18 +12,17 @@ import java.util.UUID;
  * Racine commune de toute entite rattachee a un tenant. tenant_id est
  * NOT NULL des la creation : aucune ligne ne doit exister sans tenant.
  *
- * Le filtre Hibernate automatique (@TenantId + CurrentTenantIdentifierResolver)
- * n'est pas encore active ici - il arrive en Phase 3, une fois le
- * TenantContext propage par le gateway (Phase 2). Jusque-la, aucun code
- * ne peuple encore ce champ : les endpoints de creation de ce service
- * echoueront (contrainte NOT NULL) tant que la Phase 2/3 n'est pas livree -
- * c'est un choix assume plutot qu'une colonne facultative en attendant.
+ * @TenantId fait peupler et filtrer automatiquement ce champ par Hibernate
+ * (insertion, et "WHERE tenant_id = ?" ajoute sur chaque requete), a partir
+ * du tenant courant pose par security.TenantContextFilter sur chaque
+ * requete HTTP entrante (voir security.TenantIdentifierResolver).
  */
 @MappedSuperclass
 @Getter
 @Setter
 public abstract class TenantAwareEntity {
 
+    @TenantId
     @Column(name = "tenant_id", nullable = false)
     private UUID tenantId;
 }

@@ -15,9 +15,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
+    private final TenantContextFilter tenantContextFilter;
 
-    public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter) {
+    public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter, TenantContextFilter tenantContextFilter) {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+        this.tenantContextFilter = tenantContextFilter;
     }
 
     @Bean
@@ -51,7 +53,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.DELETE, "/api/retraits/**").hasRole("COMPTABLE")
                         .anyRequest().authenticated()
                 )
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(tenantContextFilter, JwtAuthenticationFilter.class);
 
         return http.build();
     }
