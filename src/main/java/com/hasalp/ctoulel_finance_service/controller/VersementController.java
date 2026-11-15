@@ -33,6 +33,13 @@ public class VersementController {
         return service.getById(id);
     }
 
+    @GetMapping("/membre/{membreId}")
+    public List<VersementResponseDTO> findByMembreAndAnnee(
+            @PathVariable Long membreId,
+            @RequestParam Integer annee) {
+        return service.getByMembreAndAnnee(membreId, annee);
+    }
+
     @PutMapping("/{versementId}")
     public VersementResponseDTO update(@PathVariable Long versementId, @RequestBody VersementRequestDTO dto) {
         return service.update(versementId, dto);

@@ -4,6 +4,7 @@ import com.hasalp.ctoulel_finance_service.dto.VersementRequestDTO;
 import com.hasalp.ctoulel_finance_service.exception.BusinessException;
 import org.springframework.stereotype.Component;
 
+import java.time.Year;
 import java.util.HashSet;
 import java.util.List;
 
@@ -35,6 +36,12 @@ public class VersementValidator {
         // Mois
         if (dto.mois() == null || dto.mois().isBlank()) {
             throw new BusinessException("Le mois est obligatoire");
+        }
+
+        // Annee
+        int currentYear = Year.now().getValue();
+        if (dto.annee() == null || dto.annee() < 2000 || dto.annee() > currentYear + 1) {
+            throw new BusinessException("L'année est obligatoire et doit être valide");
         }
     }
 }

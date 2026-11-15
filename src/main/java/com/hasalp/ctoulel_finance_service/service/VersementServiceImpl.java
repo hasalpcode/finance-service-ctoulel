@@ -69,6 +69,15 @@ public class VersementServiceImpl implements VersementService {
     }
 
 
+    @Override
+    public List<VersementResponseDTO> getByMembreAndAnnee(Long membreId, Integer annee) {
+        return repository.findByMembreIdAndAnnee(membreId, annee)
+                .stream()
+                .map(mapper::toDto)
+                .toList();
+    }
+
+
     @Transactional
     public VersementResponseDTO update(Long versementId, VersementRequestDTO dto) {
 

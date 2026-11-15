@@ -27,6 +27,9 @@ public class Versement extends TenantAwareEntity {
     @Column(nullable = false)
     private String mois;
 
+    @Column(nullable = true)
+    private Integer annee;
+
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)

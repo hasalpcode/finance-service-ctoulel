@@ -11,6 +11,7 @@ public interface VersementService {
     List<VersementResponseDTO> create(VersementRequestDTO dto);
     List<VersementResponseDTO> getAll();
     VersementResponseDTO getById(Long id);
+    List<VersementResponseDTO> getByMembreAndAnnee(Long membreId, Integer annee);
     VersementResponseDTO update(Long versementId, VersementRequestDTO dto);
 
     void delete(Long versementId);

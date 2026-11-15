@@ -16,6 +16,7 @@ public interface VersementMapper {
         Versement v = new Versement();
         v.setMembreId(membreId);
         v.setMois(dto.mois());
+        v.setAnnee(dto.annee());
         v.setMontant(dto.montant());
         return v;
     }
