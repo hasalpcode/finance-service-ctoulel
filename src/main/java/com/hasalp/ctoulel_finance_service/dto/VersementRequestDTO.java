@@ -14,6 +14,9 @@ public record VersementRequestDTO(
         String mois,
 
         @NotNull
+        Integer annee,
+
+        @NotNull
         Double montant
 ) {
 }
