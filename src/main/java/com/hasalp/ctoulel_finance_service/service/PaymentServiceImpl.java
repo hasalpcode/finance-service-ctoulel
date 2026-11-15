@@ -25,6 +25,7 @@ import org.springframework.stereotype.Service;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.Year;
 import java.util.HexFormat;
 import java.util.Map;
 import java.util.UUID;
@@ -184,6 +185,7 @@ public class PaymentServiceImpl implements PaymentService {
                             .membreId(transaction.getMembreId())
                             .montant(transaction.getMontant())
                             .mois(transaction.getMois())
+                            .annee(Year.now().getValue())
                             .build();
                     versement = versementRepository.save(versement);
                     transaction.setVersementId(versement.getVersementId());
