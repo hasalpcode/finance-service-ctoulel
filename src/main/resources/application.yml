@@ -9,7 +9,7 @@ security:
 
 spring:
   config:
-    import: optional:configserver:${CONFIG_SERVER_URI:http://localhost:8888}
+    import: optional:configserver:${CONFIG_SERVER_URI:http://localhost:8886}
   application:
     name: finance-service
   cloud:
@@ -37,3 +37,20 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     prefer-ip-address: true
+
+paydunya:
+  base-url: ${PAYDUNYA_BASE_URL:https://app.paydunya.com/sandbox-api/v1}
+  disburse-base-url: ${PAYDUNYA_DISBURSE_BASE_URL:https://app.paydunya.com/api/v2/disburse}
+  master-key: ${PAYDUNYA_MASTER_KEY:}
+  private-key: ${PAYDUNYA_PRIVATE_KEY:}
+  public-key: ${PAYDUNYA_PUBLIC_KEY:}
+  token: ${PAYDUNYA_TOKEN:}
+  store-name: ${PAYDUNYA_STORE_NAME:Dental}
+  callback-url: ${PAYDUNYA_CALLBACK_URL:http://localhost:8080/finance-service/api/payments/webhook/paydunya}
+  disburse-callback-url: ${PAYDUNYA_DISBURSE_CALLBACK_URL:http://localhost:8080/finance-service/api/payments/webhook/paydunya-disburse}
+  return-url: ${PAYDUNYA_RETURN_URL:http://localhost:8080/payment/success}
+  cancel-url: ${PAYDUNYA_CANCEL_URL:http://localhost:8080/payment/cancel}
+  sandbox: ${PAYDUNYA_SANDBOX:true}
+  sandbox-test-phone: ${PAYDUNYA_SANDBOX_PHONE:}
+  sandbox-test-email: ${PAYDUNYA_SANDBOX_EMAIL:}
+  sandbox-test-password: ${PAYDUNYA_SANDBOX_PASSWORD:}
