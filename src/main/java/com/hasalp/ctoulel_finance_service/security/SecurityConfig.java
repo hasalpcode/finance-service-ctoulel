@@ -47,7 +47,6 @@ public class SecurityConfig {
                         )
                 )
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.POST, "/api/payments/webhook/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/versements/**").hasRole("COMPTABLE")
                         .requestMatchers(HttpMethod.DELETE, "/api/versements/**").hasRole("COMPTABLE")
                         .requestMatchers(HttpMethod.POST, "/api/retraits/**").hasRole("COMPTABLE")
